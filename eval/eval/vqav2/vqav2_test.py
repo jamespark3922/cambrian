@@ -2,7 +2,7 @@ import os
 import json
 import csv
 
-from m4c_evaluator import TextVQAAccuracyEvaluator
+from m4c_evaluator import EvalAIAnswerProcessor
 from datetime import datetime
 
 
@@ -25,11 +25,14 @@ def add_data_to_csv(file_path, data):
 def compute_metrics(jsonl_file, csv_file, extra_outdir=None):
     test_list = []
 
+    eval_ai_processor = EvalAIAnswerProcessor()
+
     model = ""
     with open(jsonl_file, 'r') as file:
         for line in file:
             data = json.loads(line)
             answer = data['answer']
+            answer = eval_ai_processor(answer)
             question_id = data['question_id']
             model = data.get("model_id", '')
             test_list.append({
