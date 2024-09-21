@@ -111,7 +111,7 @@ def eval_model(args):
         outputs = tokenizer.batch_decode(output_ids, skip_special_tokens=True)[0].strip()
 
         ans_file.write(json.dumps({
-            "question_id": idx,
+            "question_id": line["question_id"],
             "prompt": prompt,
             "answer": outputs,
             "model_id": model_name, 

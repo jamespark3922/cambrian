@@ -33,7 +33,7 @@ def compute_metrics(jsonl_file, csv_file, extra_outdir=None):
             question_id = data['question_id']
             model = data.get("model_id", '')
             test_list.append({
-                "questionId": int(question_id),
+                "question_id": int(question_id),
                 "answer": answer
             })
     file_path = f"./answers/{model}_vqav2_testdev_submission.json"
