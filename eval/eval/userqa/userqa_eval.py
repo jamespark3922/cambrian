@@ -138,7 +138,7 @@ if __name__ == "__main__":
     parser.add_argument("--model_base", type=str, default=None)
     parser.add_argument("--input_dir", type=str, default="/net/nfs.cirrascale/mosaic/jamesp/code/VLMEvalKit/user_qa")
     parser.add_argument("--answers_file", type=str, default="./answers/answers.jsonl")
-    parser.add_argument("--question_extension", type=str, default="")
+    parser.add_argument("--question_extension", type=str, default="Answer the question using a single word or phrase.")
     parser.add_argument("--conv_mode", type=str, default="vicuna_v1")
     parser.add_argument("--num_chunks", type=int, default=1)
     parser.add_argument("--chunk_idx", type=int, default=0)
