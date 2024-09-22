@@ -14,7 +14,8 @@ def compute_metrics(jsonl_file, csv_file, extra_outdir=None):
         for line in file:
             data = json.loads(line)
             test_list.append(data)
-    file_path = f"./answers/{model}_userqa_prediction.excel"
+            model = data.get("model_id", '')
+    file_path = f"./answers/{model}_userqa_prediction.xlsx"
     pd.DataFrame(test_list).to_excel(file_path)
     # add_data_to_csv(csv_file, combined_data)
     print(f"prediction file: {file_path} is created.")
